@@ -6,11 +6,13 @@
 </head>
 <body>
 
-  <div class="container" ng-init="books=[{'name':'Effective Java', 'author':'Joshua Bloch'},{'name':'Tolerance', 'author':'Hendrik Willem van Loon'}, {'name':'JavaScript Good Parts','author':'Douglas Crockford', 'Confessions of Public Speaker']">
+  <div class="container" ng-init="books=[{'name':'Effective Java', 'author':'Joshua Bloch'},{'name':'Tolerance', 'author':'Hendrik Willem van Loon'}, {'name':'JavaScript Good Parts','author':'Douglas Crockford'},{'name':'Confessions of Public Speaker', 'author':'Scott Berkun'}]">
 	<h2>Your Online Bookshop</h2>
+	<input type="search" ng-model="criteria">
+	
 	<ul class="unstyled">
-	  <li ng-repeat="book in books">
-	    {{book}}
+	  <li ng-repeat="book in books | filter:criteria |  orderBy :'name'" >
+	    <span>{{book.name}}written by {{book.author}}</span>
 	  </li>
 	</ul>
   </div>
