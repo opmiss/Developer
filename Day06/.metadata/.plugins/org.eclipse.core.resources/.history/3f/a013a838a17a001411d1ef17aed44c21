@@ -1,7 +1,0 @@
-package linkbin
-
-class User {
-
-    static constraints = {
-    }
-}
