@@ -1,0 +1,40 @@
+<!doctype html>
+<html ng-app>
+<head>
+  <title>Web Deployment Examples</title>
+  <link type="text/css" rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/freebase/suggest/4_2/suggest.min.css" />
+  <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="bower_components/jquery/jquery.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/freebase/suggest/4_2/suggest.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    $("#freebaseinput").suggest({"key":"AIzaSyAums6-31se_Sus0yUIYfAqE5Cukw-n7cI"});
+    $("#freebaseinput").suggest({filter:'(all type:restaurant )'});
+  });
+  </script>
+</head>
+<body>
+
+   <div class="page-header">
+    <h1><center>Web Deployment Examples</center></h1>
+  </div>
+
+  <div class="container" ng-init="books=[{'name':'Effective Java', 'author':'Joshua Bloch'},{'name':'Tolerance', 'author':'Hendrik Willem van Loon'}, {'name':'JavaScript Good Parts','author':'Douglas Crockford'},{'name':'Confessions of Public Speaker', 'author':'Scott Berkun'}]">
+	<h2>1. AngularJS</h2>
+	<input type="search" class="form-control" placeholder="Enter book/author name" ng-model="criteria">
+	<br>
+	<ul class="list-group">
+	  <li class="list-group-item" ng-repeat="book in books | filter:criteria |  orderBy :'name'" >
+	    <span><b>{{book.name}}</b> written by <b>{{book.author}}</b></span>
+	  </li>
+	</ul>
+  </div>
+  
+    <div class="container">
+	<h2>2. Freebase with JQuery</h2>
+	<input id="freebaseinput" type="text" class="form-control" placeholder="Enter entity name">
+  </div>
+  
+</body>
+</html>
